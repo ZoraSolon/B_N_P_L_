@@ -1,3 +1,9 @@
+## Disclaimer
+
+**For Illustrative and Educational Purposes Only:** This open-source repository is a technical proof-of-concept and architectural demonstration. It is not a live financial product, nor does it constitute an offer, solicitation, or recommendation to provide credit, lending, payment processing, or any regulated financial services to any individual or entity. 
+
+All underwriting logic, transaction flows, and card-issuing integrations contained herein are intended strictly for sandbox testing and software development purposes. No actual funds are disbursed, no consumer credit decisions are rendered, and no personally identifiable financial data is solicited or collected through this project.
+
 # BNPL Underwriting & Virtual Card Engine
 
 An end-to-end Buy Now, Pay Later (BNPL) underwriting and single-use virtual card issuance prototype built with Python, Plaid, and Google Cloud Platform.
