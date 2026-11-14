@@ -1,0 +1,1 @@
+# Pure functions to calculate cash-flow metrics & approve/decline
