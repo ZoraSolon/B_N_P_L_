@@ -129,6 +129,6 @@ user_data = {
     "employment_status": employment_status
 }
 
-# Print out the results to verify it captured everything correctly
+# Print out succes message and move on to next step
 print(f"\n--- Great {first_name}! ---")
 print("Now link your bank account via Plaid to get your buying power")
