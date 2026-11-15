@@ -3,19 +3,6 @@
 #This is the onboarding/ account creation process
 
 """
-DATA BLUEPRINT: CustomerIntakeForm
-Defines the exact fields collected during onboarding:
-- first_name, middle_name, last_name, suffix
-- ssn (stored securely/tokenized)
-- dob (YYYY-MM-DD)
-- street_address, city, state, zip_code
-- email, phone
-- employment_status (employed, self_employed, retired, unemployed)
-"""
-
-
-
-"""
 def create_user():
     
     Flow for Onboarding, Compliance, & Analytics:
@@ -62,20 +49,40 @@ def create_user():
     # TODO: Step 6 - Log funnel/session status for window-shopping analytics
     # TODO: Step 7 - Return user_id
     pass
-   
+"""  
 
 
+def create_user():
+    print("=== Let's get to know you ===\n")
+
+    # Collect inputs directly into a dictionary
+    user_data = {
+        "first_name": input("Enter your first name: "),
+        "middle_name": input("Enter your middle name (press Enter if none): "),
+        "last_name": input("Enter your last name: "),
+        "suffix": input("Enter your suffix (e.g., Jr., III, press Enter if none): "),
+        "ssn": input("Enter your SSN (9 digits): "),
+        "dob": input("Enter your Date of Birth (YYYY-MM-DD): "),
+        "street_address": input("Enter your street address: "),
+        "city": input("Enter your city: "),
+        "state": input("Enter your state (2 letters): "),
+        "zip_code": input("Enter your ZIP code: "),
+        "email": input("Enter your email address: "),
+        "phone": input("Enter your phone number (10 digits): "),
+        "employment_status": input("Enter your employment status (employed, self_employed, etc.): ")
+    }
     
+    print("\nAccount successfully created!")
+    return user_data
 
-def collect_user_inputs() -> dict:
-
-    Terminal-based input collection. 
-    (Later, this will be replaced by API request bodies or a UI form).
-   
-    print("=== BNPL ONBOARDING PORTAL ===")
-    print("Please enter your details below:\n")
+def user_login():
+    print("Welcome back! Please enter your credentials to log in.")
+ 
+def get_user_data():
+    print("=== Let's get to know you ===\n")
     
-    data = {
+    # 1. Store your input prompts inside a dictionary
+    user_data = {
         "first_name": input("First Name: ").strip(),
         "middle_name": input("Middle Name (press Enter if none): ").strip() or None,
         "last_name": input("Last Name: ").strip(),
@@ -90,44 +97,25 @@ def collect_user_inputs() -> dict:
         "phone": input("Phone Number (10 digits): ").strip(),
         "employment_status": input("Employment Status (employed, self_employed, retired, unemployed): ").strip().lower()
     }
-    return data
-"""
+    
+    # 2. Return the dictionary so the main program can use it
+    return user_data
 
+# --- Main Program Flow ---
+print("Hello, Welcome to Zora! \nThis is a wonderful place to be, let's see how we can help you. \nPlease follow the prompts.\n")
 
-print("=== Let's get to know you ===\n")
+is_new_user = True  # Or gathered from an input/check
 
-# Prompt the user for each piece of structured data 
-first_name = input("Enter your first name: ")
-middle_name = input("Enter your middle name (press Enter if none): ")
-last_name = input("Enter your last name: ")
-suffix = input("Enter your suffix (e.g., Jr., III, press Enter if none): ")
-ssn = input("Enter your SSN (9 digits): ")
-dob = input("Enter your Date of Birth (YYYY-MM-DD): ")
-street_address = input("Enter your street address: ")
-city = input("Enter your city: ")
-state = input("Enter your state (2 letters): ")
-zip_code = input("Enter your ZIP code: ")
-email = input("Enter your email address: ")
-phone = input("Enter your phone number (10 digits): ")
-employment_status = input("Enter your employment status (employed, self_employed, etc.): ")
+if is_new_user:
+    # 1. Call the function and store the returned dictionary
+    created_user_data = create_user()
+    
+    # 2. Extract the first_name from the dictionary
+    first_name = created_user_data["first_name"]
 
+else:
+    user_login()
 
-# Package all these variables neatly into a dictionary
-user_data = {
-    "first_name": first_name,
-    "middle_name": middle_name or None,
-    "last_name": last_name,
-    "suffix": suffix or None,
-    "ssn": ssn,
-    "dob": dob,
-    "street_address": street_address,
-    "city": city,
-    "state": state,
-    "zip_code": zip_code,
-    "email": email,
-    "phone": phone,
-    "employment_status": employment_status
-}
 
 # Print out success message and move on to next step
 print(f"\n--- Great {first_name}! ---")
